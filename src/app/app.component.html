@@ -1,0 +1,25 @@
+<div class="app-layout">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <h2>API Gimnasio</h2>
+      <span>Panel Frontend</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <p class="nav-section-title">Entidades</p>
+      @for (item of entidadesMenu; track item.ruta) {
+        <a
+          [routerLink]="item.ruta"
+          routerLinkActive="active-link"
+          class="nav-item"
+        >
+          {{ item.nombre }}
+        </a>
+      }
+    </nav>
+  </aside>
+
+  <main class="main-area">
+    <router-outlet></router-outlet>
+  </main>
+</div>

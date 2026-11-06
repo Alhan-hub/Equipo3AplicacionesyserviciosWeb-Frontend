@@ -1,0 +1,165 @@
+<div class="page-container">
+  <header class="page-header">
+    <div>
+      <h1>Gestión de Miembros</h1>
+      <p class="subtitle">CRUD conectado directamente al recurso <code>/miembros</code> del backend</p>
+    </div>
+    <button type="button" class="btn btn-secondary" (click)="cargarMiembros()">
+      Recargar colección (GET)
+    </button>
+  </header>
+
+  <!-- Alertas de estado y conexión al backend -->
+  @if (mensajeError) {
+    <div class="alert alert-error" role="alert">
+      <strong>Error:</strong> {{ mensajeError }}
+    </div>
+  }
+
+  @if (mensajeExito) {
+    <div class="alert alert-success" role="status">
+      {{ mensajeExito }}
+    </div>
+  }
+
+  <div class="content-grid">
+    <!-- FORMULARIO POST / PUT -->
+    <section class="card">
+      <h2>{{ editandoId ? 'Editar Miembro (PUT)' : 'Nuevo Miembro (POST)' }}</h2>
+      @if (editandoId) {
+        <p class="editing-badge">ID en edición: <code>{{ editandoId }}</code></p>
+      }
+
+      <form (ngSubmit)="guardarMiembro()" #miembroForm="ngForm">
+        <div class="form-group">
+          <label for="nombre">Nombre completo (2 - 120 caracteres)</label>
+          <input
+            id="nombre"
+            name="nombre"
+            type="text"
+            [(ngModel)]="formulario.nombre"
+            required
+            minlength="2"
+            maxlength="120"
+            placeholder="Ej. Carlos Ramírez"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="edad">Edad (14 - 100 años)</label>
+          <input
+            id="edad"
+            name="edad"
+            type="number"
+            [(ngModel)]="formulario.edad"
+            required
+            min="14"
+            max="100"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo electrónico (5 - 254 caracteres)</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            [(ngModel)]="formulario.email"
+            required
+            minlength="5"
+            maxlength="254"
+            placeholder="Ej. carlos@gimnasio.com"
+          />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" [disabled]="miembroForm.invalid">
+            {{ editandoId ? 'Actualizar (PUT)' : 'Crear (POST)' }}
+          </button>
+          @if (editandoId) {
+            <button type="button" class="btn btn-secondary" (click)="cancelarEdicion()">
+              Cancelar
+            </button>
+          }
+        </div>
+      </form>
+    </section>
+
+    <!-- FILTRO GET POR ID Y TABLA DE RESULTADOS -->
+    <section class="card">
+      <div class="filter-bar">
+        <div class="filter-input-group">
+          <label for="filtroId">Consultar por ID (<code>GET /miembros/&#123;id&#125;</code>)</label>
+          <div class="filter-controls">
+            <input
+              id="filtroId"
+              name="filtroId"
+              type="text"
+              [(ngModel)]="filtroId"
+              (keyup.enter)="buscarPorId()"
+              placeholder="Pegue el UUID del miembro..."
+            />
+            <button type="button" class="btn btn-primary" (click)="buscarPorId()">
+              Buscar por ID
+            </button>
+            <button type="button" class="btn btn-secondary" (click)="limpiarFiltro()">
+              Ver todos
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID (UUID)</th>
+              <th>Nombre</th>
+              <th>Edad</th>
+              <th>Email</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @if (cargando) {
+              <tr>
+                <td colspan="5" class="empty-cell">Consultando al backend...</td>
+              </tr>
+            } @else if (miembros.length === 0) {
+              <tr>
+                <td colspan="5" class="empty-cell">
+                  No hay registros para mostrar en la tabla.
+                </td>
+              </tr>
+            } @else {
+              @for (m of miembros; track m.id) {
+                <tr>
+                  <td class="uuid-cell"><code>{{ m.id }}</code></td>
+                  <td>{{ m.nombre }}</td>
+                  <td>{{ m.edad }}</td>
+                  <td>{{ m.email }}</td>
+                  <td class="actions-cell">
+                    <button
+                      type="button"
+                      class="btn btn-small btn-edit"
+                      (click)="seleccionarParaEditar(m)"
+                    >
+                      Editar
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-small btn-delete"
+                      (click)="eliminarMiembro(m.id)"
+                    >
+                      Eliminar
+                    </button>
+                  </td>
+                </tr>
+              }
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>
