@@ -20,6 +20,6 @@ For more information on using the Angular CLI, including detailed command refere
 ### Evidencias del frontend
 | Integrante | Rol / Entidad | Enlace del Video |
 | :--- | :--- | :--- |
-| **Alhan Rendón** | Miembro | [🎬 Pendiente de entrega](#) |
+| **Alhan Rendón** | Miembro | https://youtu.be/WAobdTbuEcI |
 | **** | | [🎬 Pendiente de entrega](#) |
 | **** | | [🎬 Pendiente de entrega](#) |
