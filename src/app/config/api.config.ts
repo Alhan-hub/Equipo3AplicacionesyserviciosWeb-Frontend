@@ -1,3 +1,3 @@
 export const API_CONFIG = {
-  baseUrl: 'http://localhost:8000'
+  baseUrl: 'https://api-gimnasio-equipo3.onrender.com'
 };
