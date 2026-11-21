@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "C:\\Users\\ALHAN RENDON RUIZ\\Documents\\Visual Studio 2022\\Repositorios\\Frontend\\Equipo3AplicacionesyserviciosWeb-Frontend\\dist\\gimnasio-frontend\\browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

@@ -1,25 +1,29 @@
 # Gimnasio Frontend (Equipo 3)
 
-Este es el frontend en Angular para la gestión de entidades del gimnasio, desarrollado utilizando la arquitectura Standalone Components para el Examen 4.
+Aplicación web frontend desarrollada en Angular (Standalone Components) para la gestión de miembros del gimnasio, desplegada en Firebase Hosting y conectada a la API REST en FastAPI.
 
-## 🚀 Cómo levantar el frontend en local
+## 🌐 Enlaces de Producción (Entrega Final)
 
-Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
+* **Aplicación Web (Firebase Hosting):** https://gimnasio-equipo3.web.app
+* **API Backend (Render):** https://api-gimnasio-equipo3.onrender.com
+* **Documentación Interactive Swagger:** https://api-gimnasio-equipo3.onrender.com/docs
 
-1. Abre una terminal y ubícate en la raíz de este proyecto.
-2. Instala las dependencias necesarias ejecutando el siguiente comando:
+## 🚀 Ejecución en Entorno Local
+
+1. Clonar el repositorio e instalar las dependencias:
    ```bash
    npm install
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 ### Evidencias del frontend
 | Integrante | Rol / Entidad | Enlace del Video |
 | :--- | :--- | :--- |
 | **Alhan Rendón** | Miembro | https://youtu.be/WAobdTbuEcI |
+| **** | | [🎬 Pendiente de entrega](#) |
+| **** | | [🎬 Pendiente de entrega](#) |
+
+### Evidencias del uso de firebase
+| Integrante | Rol / Entidad | Enlace del Video |
+| :--- | :--- | :--- |
+| **Alhan Rendón** | Miembro |  |
 | **** | | [🎬 Pendiente de entrega](#) |
 | **** | | [🎬 Pendiente de entrega](#) |
