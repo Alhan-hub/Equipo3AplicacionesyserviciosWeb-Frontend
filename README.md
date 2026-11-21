@@ -21,9 +21,4 @@ Aplicación web frontend desarrollada en Angular (Standalone Components) para la
 | **** | | [🎬 Pendiente de entrega](#) |
 | **** | | [🎬 Pendiente de entrega](#) |
 
-### Evidencias del uso de firebase
-| Integrante | Rol / Entidad | Enlace del Video |
-| :--- | :--- | :--- |
-| **Alhan Rendón** | Miembro |  |
-| **** | | [🎬 Pendiente de entrega](#) |
-| **** | | [🎬 Pendiente de entrega](#) |
+
